@@ -27,10 +27,9 @@ var education = {
   "schools": [
     {
       "name": "St Dominic Regional High School",
-      "location": "Lewiston, Mainframe",
-      "major": "College preparatory",
+      "location": "Lewiston, ME",
+      "major": "College Preparatory",
       "dates": "1971-1976",
-      "graduated": "1976",
       "url": "http://www.stdomsmaine.org/"
     }
   ],
@@ -42,19 +41,102 @@ var education = {
         {
           "title": "Front End Developer Nanodegree",
           "url": "www.udacity.com"
-        },
-        {
-
         }
       ]
-
-
     },
     {
-      "title": "",
       "school": "Code School",
       "dates": "2013-Present",
-      "url": "",
+      "courses": [
+        {
+          "title": "Functional HTML5 & CSS3",
+          "url": "https://www.codeschool.com/courses/functional-html5-css3"
+        },
+        {
+          "title": "Front-end Foundations",
+          "url": "https://www.codeschool.com/courses/front-end-foundations"
+        },
+        {
+          "title": "Front-end Formations",
+          "url": "https://www.codeschool.com/courses/front-end-formations"
+        },
+        {
+          "title": "CSS Cross-Country",
+          "url": "https://www.codeschool.com/courses/css-cross-country"
+        },
+        {
+          "title": "Journey Into Mobile",
+          "url": "https://www.codeschool.com/courses/journey-into-mobile"
+        },
+        {
+          "title": "Fundamentals of Design",
+          "url": "https://www.codeschool.com/courses/fundamentals-of-design"
+        },
+        {
+          "title": "Adventures in Web Animations",
+          "url": "https://www.codeschool.com/courses/adventures-in-web-animations"
+        },
+        {
+          "title": "Assembling Sass",
+          "url": "https://www.codeschool.com/courses/assembling-sass"
+        },
+        {
+          "title": "Unmasking HTML Emails",
+          "url": "https://www.codeschool.com/courses/unmasking-html-emails"
+        },
+        {
+          "title": "Try SQL",
+          "url": "https://www.codeschool.com/courses/try-sql"
+        },
+        {
+          "title": "The Sequel to SQL",
+          "url": "https://www.codeschool.com/courses/the-sequel-to-sql"
+        }
+      ]
+    },
+    {
+      "school": "Codecademy",
+      "dates": "2013-Present",
+      "courses": [
+        {
+          "title": "Learn SQL",
+          "url": "https://www.codecademy.com/en/courses/learn-sql"
+        },
+        {
+          "title": "HTML & CSS",
+          "url": "https://www.codecademy.com/en/tracks/web"
+        },
+        {
+          "title": "jQuery",
+          "url": "https://www.codecademy.com/en/tracks/jquery"
+        }
+      ]
+    },
+    {
+      "school": "Udemy",
+      "dates": "2013-Present",
+      "courses": [
+        {
+          "title": "Convert HEX to Decimal in under 30 seconds!",
+          "url": "https://www.udemy.com/course-dashboard-redirect/?course_id=50274"
+        },
+        {
+          "title": "Git Complete: the definitive, step-by-step guide to Git",
+          "url": "https://www.udemy.com/course-dashboard-redirect/?course_id=221674"
+        },
+        {
+          "title": "Command Line Essentials: Git Bash for Windows",
+          "url": "https://www.udemy.com/course-dashboard-redirect/?course_id=470424"
+        },
+        {
+          "title": "Learning C# .NET",
+          "url": "https://www.udemy.com/course-dashboard-redirect/?course_id=11152"
+        },
+        {
+          "title": "Design for Coders",
+          "url": "https://www.udemy.com/course-dashboard-redirect/?course_id=79610"
+        }
+      ]
     }
   ]
 };

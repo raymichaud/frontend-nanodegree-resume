@@ -137,6 +137,28 @@ var education = {
           "url": "https://www.udemy.com/course-dashboard-redirect/?course_id=79610"
         }
       ]
+    },
+    {
+      "school": "Microsoft Virtual Academy",
+      "dates": "2015-Present",
+      "courses": [
+        {
+          "title": "Developing in HTML5 with JavaScript and CSS3 Jump Start",
+          "url": "https://mva.microsoft.com/training-courses/learn-html5-with-javascript-css3-jumpstart-training"
+        },
+        {
+          "title": "C# Fundamentals for Absolute Beginners",
+          "url": "https://mva.microsoft.com/training-courses/c-fundamentals-for-absolute-beginners"
+        },
+        {
+          "title": "Microsoft Azure Fundamentals",
+          "url": "https://mva.microsoft.com/training-courses/microsoft-azure-fundamentals"
+        },
+        {
+          "title": "Windows 10 Development for Absolute Beginners",
+          "url": "https://mva.microsoft.com/en-US/training-courses/windows-10-development-for-absolute-beginners-14541"
+        }
+      ]
     }
   ]
 };
@@ -201,5 +223,66 @@ var work = {
 };
 
 var project = {
-
+  "projects": [
+    {
+      "title": "Museum L-A website redesign",
+      "dates": "2010",
+      "description": "Redesign website for Museum L-A and migrate to a new CMS system",
+      "images": [
+        "images/museumla-home.jpg",
+        "images/museumla-bells.jpg"
+      ]
+    },
+    {
+      "title": "1000 Tears website",
+      "dates": "2012-2013",
+      "description": "Create website to host the 1000 Tears art installation project. Also allows people to dedicate a Tear online. All proceeds from sale of Tear dedications benefit the Patrick Dempsey Center for Cancer Hope and Healing.",
+      "images": [
+        "images/tears-home.jpg",
+        "images/tears-about.jpg",
+        "images/tears-dedicate.jpg"
+      ]
+    },
+    {
+      "title": "Business Intelligence Group (BIG)",
+      "dates": "2014",
+      "description": "The Business Intelligence Group (BIG) is a cross functional team tasked with creating the foundation for a Business Intelligence program at Androscoggin Bank. Preliminary work is focused on cleaning our databases, standardizing data entry, and identifying reporting needs. In future years, BIG will help Androscoggin Bank develop analytical and predictive models to improve decision making, streamline operations, and enhance client experiences and product offerings. It's a BIG project with a great team!"
+    },
+    {
+      "title": "Mobile Banking App",
+      "dates": "2014",
+      "description": "This project supports the goal to increasing adoption rates of high-efficiency, lower-cost client delivery channels by rolling out a branded mobile banking App for iPhones & Androids. This will help us remain relevant with client demands, provide convenience and reduce operational costs. We will continue with training, promotions and awareness throughout 2014.",
+      "images": [
+        "images/iphone0.jpeg",
+        "images/ipnone1.jpeg"
+      ]
+    },
+    {
+      "title": "Mobile Tablet App",
+      "dates": "2015",
+      "description": "This project supports the goal to increasing adoption rates of high-efficiency, lower-cost client delivery channels by rolling out a branded mobile banking app for tablets. This will help us remain relevant with client demands, provide convenience and reduce operational costs. We will continue with training, promotions and awareness throughout 2015.",
+      "images": [
+        "images/ipad1.jpeg",
+        "images/ipad2.jpeg"
+      ]
+    },
+    {
+      "title": "Intranet Migration",
+      "dates": "2015",
+      "description": "Move intranet site from an end-of-life server to a new virtual server. Upgrade to a 64 bit web environment, migrate some of the secured web applications from classic ASP/MS Access to PHP/MySQL, upgrade JavaScript, and migrate to HTML5/CSS3.",
+      "images": [
+        "images/migration-androdex.jpg",
+        "images/migration-hom"
+      ]
+    },
+    {
+      "title": "Intranet Redesign",
+      "dates": "2016",
+      "description": "Migrate current intranet into a CMS system (Intranet Connections) to leverage collaboration.",
+      "images": [
+        "images/andronet-newhome.jpg",
+        "images/andronet-newhr.jpg"
+      ]
+    }
+  ]
 };

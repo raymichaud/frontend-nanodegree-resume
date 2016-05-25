@@ -15,12 +15,13 @@ var bio = {
     "linkedin": "http://linkedin.com/in/ray-michaud-939b7235",
     "degreed":"https://degreed.com/raymichaud/",
     "location": "Lewiston, ME",
-    "picture": "images/RayMichaud.jpg",
-    "skills": [
-      "web application development",
-      "fine art painting"
-    ]
-  }
+  },
+  "picture": "images/RayMichaud.jpg",
+  "skills": [
+    "web application development",
+    "technology training",
+    "fine art painting"
+  ]
 };
 
 var education = {
@@ -286,3 +287,16 @@ var project = {
     }
   ]
 };
+
+/* Format and append/prepend header elements from bio object*/
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture)
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+$("#header").append(formattedBioPic);
+$("#header").append(formattedWelcomeMsg);

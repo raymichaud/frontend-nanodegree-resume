@@ -1,7 +1,6 @@
 var bio = {
   "name": "Ray A Michaud",
   "role": "Web Developer",
-  "welcomeMessage": "Welcome. I am currently employed as a full stack web developer. I am pursuing educational credentials to augment my self-learning and experience in this field.",
   "contacts": {
     "phones": {
       "mobile": "(207) 754-4930",
@@ -16,12 +15,13 @@ var bio = {
     "degreed":"https://degreed.com/raymichaud/",
     "location": "Lewiston, ME",
   },
-  "picture": "images/RayMichaud.jpg",
+  "welcomeMessage": "Welcome. I am currently employed as a full stack web developer. I am pursuing educational credentials to augment my self-learning and experience in this field.",
   "skills": [
     "web application development",
     "technology training",
     "fine art painting"
-  ]
+  ],
+  "picture": "images/RayMichaud.jpg"
 };
 
 var education = {
@@ -29,7 +29,11 @@ var education = {
     {
       "name": "St Dominic Regional High School",
       "location": "Lewiston, ME",
-      "major": "College Preparatory",
+      "degree": "Graduated 3rd in class"
+      "majors": [
+        "College Preparation",
+        "STEM"
+      ],
       "dates": "1971-1976",
       "url": "http://www.stdomsmaine.org/"
     }

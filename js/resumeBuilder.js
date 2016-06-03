@@ -21,7 +21,10 @@ var bio = {
     "technology training",
     "fine art painting"
   ],
-  "picture": "images/RayMichaud.jpg"
+  "picture": "images/RayMichaud.jpg",
+  "display": function() {
+
+  }
 };
 
 var education = {
@@ -227,7 +230,7 @@ var work = {
   ]
 };
 
-var project = {
+var projects = {
   "projects": [
     {
       "title": "Museum L-A website redesign",
@@ -289,18 +292,28 @@ var project = {
         "images/andronet-newhr.jpg"
       ]
     }
-  ]
+  ],
+  "display": function() {
+    for (project in projects.projects) {
+      $("#projects").append(HTMLprojectStart);
+
+      var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+      $(".project-entry:last").append(formattedTitle);
+
+      var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+      $(".project-entry:last").append(formattedDates);
+
+      var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+      $(".project-entry:last").append(formattedDescription);
+
+      if (projects.projects[project].images.length > 0) {
+        for (image in projects.projects[project].images) {
+          var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+          $("project-entry:last")append(formattedImage);
+        }
+      }
+    }
+  }
 };
 
-/* Format and append/prepend header elements from bio object*/
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture)
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMsg);
+projects.display();

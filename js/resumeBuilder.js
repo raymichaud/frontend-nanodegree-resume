@@ -1,19 +1,17 @@
+// Lines 12-13: I do not have a twitter account, added LinkedIn and Degreed instead
+// Line 24: Added variable 'bc' to save on keystrokes in dot notation
+// Lines 41, 45: Used HTMLcontactGeneric to format LinkedIn and Degreed
+
 var bio = {
   "name": "Ray A Michaud",
   "role": "Web Developer",
   "contacts": {
-    "phones": {
-      "mobile": "(207) 754-4930",
-      "work": "(207) 376-3516"
-    },
-    "email": {
-      "home": "rayamichaud@twc.com",
-      "work": "rmichaud@androscogginbank.com"
-    },
+    "mobile": "(207) 754-4930",
+    "email": "rayamichaud@twc.com",
     "github": "raymichaud",
-    "linkedin": "http://linkedin.com/in/ray-michaud-939b7235",
-    "degreed":"https://degreed.com/raymichaud/",
-    "location": "Lewiston, ME",
+    "linkedin": "rayamichaud",
+    "degreed": "raymichaud",
+    "location": "Lewiston, ME"
   },
   "welcomeMessage": "Welcome. I am currently employed as a full stack web developer. I am pursuing educational credentials to augment my self-learning and experience in this field.",
   "skills": [
@@ -23,7 +21,46 @@ var bio = {
   ],
   "picture": "images/RayMichaud.jpg",
   "display": function() {
+    var bc = bio.contacts
 
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(formattedRole);
+
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    $("#header").prepend(formattedName);
+
+    var formattedMobile = HTMLmobile.replace("%data%", bc.mobile);
+    $("#topContacts").append(formattedMobile);
+
+    var formattedEmail = HTMLemail.replace("%data%", bc.email);
+    $("#topContacts").append(formattedEmail);
+
+    var formattedGithub = HTMLgithub.replace("%data%", bc.github);
+    $("#topContacts").append(formattedGithub);
+
+    var formattedLinkedin = HTMLcontactGeneric.replace("%data%", bc.linkedin);
+    formattedLinkedin = formattedLinkedin.replace("%contact%", "linkedin")
+    $("#topContacts").append(formattedLinkedin);
+
+    var formattedDegreed = HTMLcontactGeneric.replace("%data%", bc.degreed);
+    formattedDegreed = formattedDegreed.replace("%contact%", "degreed")
+    $("#topContacts").append(formattedDegreed);
+
+    var formattedlocation = HTMLlocation.replace("%data%", bc.location);
+    $("#topContacts").append(formattedlocation);
+
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+    $("#header").append(formattedBioPic);
+
+    var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedMessage);
+
+    $("#header").append(HTMLskillsStart);
+
+    for (skill in bio.skills) {
+      var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+      $("#skills").append(formattedSkill)
+    }
   }
 };
 
@@ -32,12 +69,12 @@ var education = {
     {
       "name": "St Dominic Regional High School",
       "location": "Lewiston, ME",
-      "degree": "Graduated 3rd in class"
+      "degree": "Graduated 3rd in class",
       "majors": [
         "College Preparation",
         "STEM"
       ],
-      "dates": "1971-1976",
+      "dates": "1972-1976",
       "url": "http://www.stdomsmaine.org/"
     }
   ],
@@ -168,7 +205,36 @@ var education = {
         }
       ]
     }
-  ]
+  ],
+  "display": function() {
+    var es = education.schools;
+    for (school in es) {
+      $("#education").append(HTMLschoolStart);
+
+      var formattedSchoolName = HTMLschoolName.replace("%data%", es[school].name);
+      formattedSchoolName = formattedSchoolName.replace("#", es[school].url);
+      var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", es[school].degree);
+      $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
+
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", es[school].location);
+      $(".education-entry:last").append(formattedSchoolLocation);
+
+      var formattedSchoolDates = HTMLschoolDates.replace("%data%", es[school].dates);
+      $(".education-entry:last").append(formattedSchoolDates);
+
+      var SchoolMajor = es[school].majors[0];
+      if (es[school].majors.length > 1) {
+        for(var i = 1; i <= es[school].majors.length - 1; i++) {
+          SchoolMajor = SchoolMajor + ", " + es[school].majors[i]
+        };
+
+      }
+      var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", SchoolMajor);
+      $(".education-entry:last").append(formattedSchoolMajor);
+
+
+    }
+  }
 };
 
 var work = {
@@ -227,7 +293,10 @@ var work = {
         }
       ]
     }
-  ]
+  ],
+  "display": function() {
+
+  }
 };
 
 var projects = {
@@ -254,7 +323,10 @@ var projects = {
     {
       "title": "Business Intelligence Group (BIG)",
       "dates": "2014",
-      "description": "The Business Intelligence Group (BIG) is a cross functional team tasked with creating the foundation for a Business Intelligence program at Androscoggin Bank. Preliminary work is focused on cleaning our databases, standardizing data entry, and identifying reporting needs. In future years, BIG will help Androscoggin Bank develop analytical and predictive models to improve decision making, streamline operations, and enhance client experiences and product offerings. It's a BIG project with a great team!"
+      "description": "The Business Intelligence Group (BIG) is a cross functional team tasked with creating the foundation for a Business Intelligence program at Androscoggin Bank. Preliminary work is focused on cleaning our databases, standardizing data entry, and identifying reporting needs. In future years, BIG will help Androscoggin Bank develop analytical and predictive models to improve decision making, streamline operations, and enhance client experiences and product offerings. It's a BIG project with a great team!",
+      "images": [
+        ""
+      ]
     },
     {
       "title": "Mobile Banking App",
@@ -262,7 +334,7 @@ var projects = {
       "description": "This project supports the goal to increasing adoption rates of high-efficiency, lower-cost client delivery channels by rolling out a branded mobile banking App for iPhones & Androids. This will help us remain relevant with client demands, provide convenience and reduce operational costs. We will continue with training, promotions and awareness throughout 2014.",
       "images": [
         "images/iphone0.jpeg",
-        "images/ipnone1.jpeg"
+        "images/iphone1.jpeg"
       ]
     },
     {
@@ -280,7 +352,7 @@ var projects = {
       "description": "Move intranet site from an end-of-life server to a new virtual server. Upgrade to a 64 bit web environment, migrate some of the secured web applications from classic ASP/MS Access to PHP/MySQL, upgrade JavaScript, and migrate to HTML5/CSS3.",
       "images": [
         "images/migration-androdex.jpg",
-        "images/migration-hom"
+        "images/migration-home.jpg"
       ]
     },
     {
@@ -294,26 +366,30 @@ var projects = {
     }
   ],
   "display": function() {
-    for (project in projects.projects) {
+    // Add variable p to save on keystrokes in dot notation
+    var p = projects.projects
+    for (project in p) {
       $("#projects").append(HTMLprojectStart);
 
-      var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+      var formattedTitle = HTMLprojectTitle.replace("%data%", p[project].title);
       $(".project-entry:last").append(formattedTitle);
 
-      var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+      var formattedDates = HTMLprojectDates.replace("%data%", p[project].dates);
       $(".project-entry:last").append(formattedDates);
 
-      var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+      var formattedDescription = HTMLprojectDescription.replace("%data%", p[project].description);
       $(".project-entry:last").append(formattedDescription);
 
-      if (projects.projects[project].images.length > 0) {
-        for (image in projects.projects[project].images) {
-          var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-          $("project-entry:last")append(formattedImage);
+      if (p[project].images.length > 0) {
+        for (image in p[project].images) {
+          var formattedImage = HTMLprojectImage.replace("%data%", p[project].images[image]);
+          $(".project-entry:last").append(formattedImage);
         }
       }
     }
   }
 };
 
+bio.display();
 projects.display();
+education.display();

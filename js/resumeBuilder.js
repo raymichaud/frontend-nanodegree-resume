@@ -19,7 +19,7 @@ var bio = {
     "technology training",
     "fine art painting"
   ],
-  "picture": "images/RayMichaud.jpg",
+  "biopic": "images/RayMichaud.jpg",
   "display": function() {
     var bc = bio.contacts
 
@@ -31,25 +31,31 @@ var bio = {
 
     var formattedMobile = HTMLmobile.replace("%data%", bc.mobile);
     $("#topContacts").append(formattedMobile);
+    $("#footerContacts").append(formattedMobile);
 
     var formattedEmail = HTMLemail.replace("%data%", bc.email);
     $("#topContacts").append(formattedEmail);
+    $("#footerContacts").append(formattedEmail);
 
     var formattedGithub = HTMLgithub.replace("%data%", bc.github);
     $("#topContacts").append(formattedGithub);
+    $("#footerContacts").append(formattedGithub);
 
     var formattedLinkedin = HTMLcontactGeneric.replace("%data%", bc.linkedin);
     formattedLinkedin = formattedLinkedin.replace("%contact%", "linkedin")
     $("#topContacts").append(formattedLinkedin);
+    $("#footerContacts").append(formattedLinkedin);
 
     var formattedDegreed = HTMLcontactGeneric.replace("%data%", bc.degreed);
     formattedDegreed = formattedDegreed.replace("%contact%", "degreed")
     $("#topContacts").append(formattedDegreed);
+    $("#footerContacts").append(formattedDegreed);
 
     var formattedlocation = HTMLlocation.replace("%data%", bc.location);
     $("#topContacts").append(formattedlocation);
+    $("#footerContacts").append(formattedlocation);
 
-    var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
     $("#header").append(formattedBioPic);
 
     var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
@@ -64,6 +70,13 @@ var bio = {
   }
 };
 
+// The rubric states that education.schools.majors is an array of strings.
+// This implies that you expect to see more than one major, though this does
+//      not match up with what is displayed on the mock-up. Lines 232-235 is
+//      a routine that will display more than one major, seperated by commas.
+// Line 217 and Line 242: created variables "es" and "eo" to cut down on keystrokes.
+// line 243-244: Created a different display format to accomodate multiple
+//      courses per online school and added "courses" array to education object.
 var education = {
   "schools": [
     {
@@ -224,19 +237,39 @@ var education = {
 
       var SchoolMajor = es[school].majors[0];
       if (es[school].majors.length > 1) {
-        for(var i = 1; i <= es[school].majors.length - 1; i++) {
+        for (var i = 1; i <= es[school].majors.length - 1; i++) {
           SchoolMajor = SchoolMajor + ", " + es[school].majors[i]
-        };
-
-      }
+        }
+      };
       var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", SchoolMajor);
       $(".education-entry:last").append(formattedSchoolMajor);
+    };
+    $("#education").append(HTMLonlineClasses);
+    var eo = education.onlineCourses;
+    var HTMLeoSchool = "<p>%data%</p>"
+    var HTMLeoCourse = "<a href=\"#\">%data%</a>"
 
+    for (site in eo) {
+      $("#education").append(HTMLschoolStart);
 
+      var formattedEoSchool = HTMLeoSchool.replace("%data%", eo[site].school);
+      $(".education-entry:last").append(formattedEoSchool);
+
+      var formattedOnlineDates = HTMLonlineDates.replace("%data%", eo[site].dates);
+      $(".education-entry:last").append(formattedOnlineDates);
+
+      for (course in eo[site].courses) {
+        var formattedOnlineCourse = HTMLeoCourse.replace("%data%", eo[site].courses[course].title);
+        formattedOnlineCourse = formattedOnlineCourse.replace("#", eo[site].courses[course].url);
+        $(".education-entry:last").append(formattedOnlineCourse)
+      }
     }
   }
 };
 
+// Added "positions" array to work object to accomodate multiple positions per job -
+//      also created different display format because there is no url object for
+//      each job.
 var work = {
   "jobs": [
     {
@@ -287,7 +320,7 @@ var work = {
           "description": "Oversee customer service functions, oversee tellers, act as personnel manager, serve as northern New England technology trainer"
         },
         {
-          "title": "Sales Associate",
+          "title": "Sales Associate, Lewiston, ME",
           "dates": "1975-1988",
           "description": "Process stock, act as cashier, act as front-end supervisor, act as cash office clerk, act as cash office trainer for Northern New England"
         }
@@ -295,10 +328,37 @@ var work = {
     }
   ],
   "display": function() {
+    var j = work.jobs;
+    var HTMLjEmployer = "<p>%data%</p>";
+    var HTMLjTitle = "<p>%data%</p>";
 
+    for (job in j) {
+      $("#workExperience").append(HTMLworkStart);
+
+      var formattedEmployer = HTMLjEmployer.replace("%data%", j[job].employer);
+      $(".work-entry:last").append(formattedEmployer);
+
+      var formattedEmployerDates = HTMLworkDates.replace("%data%", j[job].dates);
+      $(".work-entry:last").append(formattedEmployerDates);
+
+      var formattedEmployerLocation = HTMLworkLocation.replace("%data%", j[job].location);
+      $(".work-entry:last").append(formattedEmployerLocation);
+
+      for (position in j[job].positions) {
+        var formattedJobTitle = HTMLjTitle.replace("%data%", j[job].positions[position].title);
+        $(".work-entry:last").append(formattedJobTitle);
+
+        var formattedJobDates = HTMLworkDates.replace("%data%", j[job].positions[position].dates);
+        $(".work-entry:last").append(formattedJobDates);
+
+        var formattedJobDescription = HTMLworkDescription.replace("%data%", j[job].positions[position].description);
+        $(".work-entry:last").append(formattedJobDescription);
+      }
+    }
   }
 };
 
+// Line 395: Created variable "p" to cut down on keystrokes
 var projects = {
   "projects": [
     {
@@ -366,7 +426,6 @@ var projects = {
     }
   ],
   "display": function() {
-    // Add variable p to save on keystrokes in dot notation
     var p = projects.projects
     for (project in p) {
       $("#projects").append(HTMLprojectStart);
@@ -391,5 +450,8 @@ var projects = {
 };
 
 bio.display();
-projects.display();
 education.display();
+work.display();
+projects.display();
+
+$("#mapDiv").append(googleMap);

@@ -329,8 +329,8 @@ var work = {
   ],
   "display": function() {
     var j = work.jobs;
-    var HTMLjEmployer = "<p>%data%</p>";
-    var HTMLjTitle = "<p>%data%</p>";
+    var HTMLjEmployer = "<a href='#'>%data%</a>";
+    var HTMLjTitle = "<p><br>%data%</p>";
 
     for (job in j) {
       $("#workExperience").append(HTMLworkStart);

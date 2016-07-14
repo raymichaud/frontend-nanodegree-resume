@@ -24,6 +24,12 @@ h6 {
   padding: 0 5%;
 }
 
+.jobTitle,
+.jobDate,
+.jobDesc {
+  margin-left: 30px;
+}
+
 h1 {
   font-size: 40px;
   color: #C6753E;
@@ -34,7 +40,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #9A3C20;
   line-height: 29px;
   padding: 10px;
 }
@@ -86,7 +92,7 @@ p {
 }
 
 a {
-  color: #1199c3;
+  color: #C6753E;
   text-decoration: none;
   margin-top: 10px;
   display: block;
@@ -95,7 +101,7 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: #eeddd9;
   line-height: 28px;
 }
 
@@ -118,7 +124,7 @@ a {
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: #eeddd9;
   padding-bottom: 10px;
   clear:both;
 }

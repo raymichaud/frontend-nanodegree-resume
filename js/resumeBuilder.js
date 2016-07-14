@@ -246,8 +246,6 @@ var education = {
     };
     $("#education").append(HTMLonlineClasses);
     var eo = education.onlineCourses;
-    var HTMLeoSchool = "<p>%data%</p>"
-    var HTMLeoCourse = "<a href=\"#\">%data%</a>"
 
     for (site in eo) {
       $("#education").append(HTMLschoolStart);
@@ -329,13 +327,11 @@ var work = {
   ],
   "display": function() {
     var j = work.jobs;
-    var HTMLjEmployer = "<a href='#'>%data%</a>";
-    var HTMLjTitle = "<p><br>%data%</p>";
 
     for (job in j) {
       $("#workExperience").append(HTMLworkStart);
 
-      var formattedEmployer = HTMLjEmployer.replace("%data%", j[job].employer);
+      var formattedEmployer = HTMLaltEmployer.replace("%data%", j[job].employer);
       $(".work-entry:last").append(formattedEmployer);
 
       var formattedEmployerDates = HTMLworkDates.replace("%data%", j[job].dates);
@@ -345,13 +341,13 @@ var work = {
       $(".work-entry:last").append(formattedEmployerLocation);
 
       for (position in j[job].positions) {
-        var formattedJobTitle = HTMLjTitle.replace("%data%", j[job].positions[position].title);
+        var formattedJobTitle = HTMLjobTitle.replace("%data%", j[job].positions[position].title);
         $(".work-entry:last").append(formattedJobTitle);
 
-        var formattedJobDates = HTMLworkDates.replace("%data%", j[job].positions[position].dates);
+        var formattedJobDates = HTMLjobDates.replace("%data%", j[job].positions[position].dates);
         $(".work-entry:last").append(formattedJobDates);
 
-        var formattedJobDescription = HTMLworkDescription.replace("%data%", j[job].positions[position].description);
+        var formattedJobDescription = HTMLjobDescription.replace("%data%", j[job].positions[position].description);
         $(".work-entry:last").append(formattedJobDescription);
       }
     }

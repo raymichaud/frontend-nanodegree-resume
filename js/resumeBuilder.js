@@ -1,7 +1,6 @@
 // Lines 12-13: I do not have a twitter account, added LinkedIn and Degreed instead
 // Line 24: Added variable 'bc' to save on keystrokes in dot notation
-// Lines 41, 45: Used HTMLcontactGeneric to format LinkedIn and Degreed
-
+// Lines 44, 49: Used HTMLcontactGeneric to format LinkedIn and Degreed
 var bio = {
   "name": "Ray A Michaud",
   "role": "Web Developer",
@@ -21,7 +20,7 @@ var bio = {
   ],
   "biopic": "images/RayMichaud.jpg",
   "display": function() {
-    var bc = bio.contacts
+    var bc = bio.contacts;
 
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
@@ -42,12 +41,12 @@ var bio = {
     $("#footerContacts").append(formattedGithub);
 
     var formattedLinkedin = HTMLcontactGeneric.replace("%data%", bc.linkedin);
-    formattedLinkedin = formattedLinkedin.replace("%contact%", "linkedin")
+    formattedLinkedin = formattedLinkedin.replace("%contact%", "linkedin");
     $("#topContacts").append(formattedLinkedin);
     $("#footerContacts").append(formattedLinkedin);
 
     var formattedDegreed = HTMLcontactGeneric.replace("%data%", bc.degreed);
-    formattedDegreed = formattedDegreed.replace("%contact%", "degreed")
+    formattedDegreed = formattedDegreed.replace("%contact%", "degreed");
     $("#topContacts").append(formattedDegreed);
     $("#footerContacts").append(formattedDegreed);
 
@@ -63,20 +62,20 @@ var bio = {
 
     $("#header").append(HTMLskillsStart);
 
-    for (skill in bio.skills) {
-      var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-      $("#skills").append(formattedSkill)
+    for (var i = 0; i < bio.skills.length; i++) {
+      var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
+      $("#skills").append(formattedSkill);
     }
   }
 };
 
 // The rubric states that education.schools.majors is an array of strings.
 // This implies that you expect to see more than one major, though this does
-//      not match up with what is displayed on the mock-up. Lines 232-235 is
+//      not match up with what is displayed on the mock-up. Lines 238-243 is
 //      a routine that will display more than one major, seperated by commas.
-// Line 217 and Line 242: created variables "es" and "eo" to cut down on keystrokes.
-// line 243-244: Created a different display format to accomodate multiple
-//      courses per online school and added "courses" array to education object.
+// Line 224 and Line 248: created variables "es" and "eo" to cut down on keystrokes.
+// line 250-264: Created a different display formats in helper.js to accomodate multiple
+//      courses per online school and added "courses" array (line 158) to education object.
 var education = {
   "schools": [
     {
@@ -221,51 +220,51 @@ var education = {
   ],
   "display": function() {
     var es = education.schools;
-    for (school in es) {
+    for (var s = 0; s < es.length; s++) {
       $("#education").append(HTMLschoolStart);
 
-      var formattedSchoolName = HTMLschoolName.replace("%data%", es[school].name);
-      formattedSchoolName = formattedSchoolName.replace("#", es[school].url);
-      var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", es[school].degree);
+      var formattedSchoolName = HTMLschoolName.replace("%data%", es[s].name);
+      formattedSchoolName = formattedSchoolName.replace("#", es[s].url);
+      var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", es[s].degree);
       $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
 
-      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", es[school].location);
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", es[s].location);
       $(".education-entry:last").append(formattedSchoolLocation);
 
-      var formattedSchoolDates = HTMLschoolDates.replace("%data%", es[school].dates);
+      var formattedSchoolDates = HTMLschoolDates.replace("%data%", es[s].dates);
       $(".education-entry:last").append(formattedSchoolDates);
 
-      var SchoolMajor = es[school].majors[0];
-      if (es[school].majors.length > 1) {
-        for (var i = 1; i <= es[school].majors.length - 1; i++) {
-          SchoolMajor = SchoolMajor + ", " + es[school].majors[i]
+      var SchoolMajor = es[s].majors[0];
+      if (es[s].majors.length > 1) {
+        for (var i = 1; i < es[s].majors.length; i++) {
+          SchoolMajor = SchoolMajor + ", " + es[s].majors[i];
         }
-      };
+      }
       var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", SchoolMajor);
       $(".education-entry:last").append(formattedSchoolMajor);
-    };
+    }
     $("#education").append(HTMLonlineClasses);
     var eo = education.onlineCourses;
 
-    for (site in eo) {
+    for (var st = 0; st < eo.length; st++) {
       $("#education").append(HTMLschoolStart);
 
-      var formattedEoSchool = HTMLeoSchool.replace("%data%", eo[site].school);
+      var formattedEoSchool = HTMLeoSchool.replace("%data%", eo[st].school);
       $(".education-entry:last").append(formattedEoSchool);
 
-      var formattedOnlineDates = HTMLonlineDates.replace("%data%", eo[site].dates);
+      var formattedOnlineDates = HTMLeoDates.replace("%data%", eo[st].dates);
       $(".education-entry:last").append(formattedOnlineDates);
 
-      for (course in eo[site].courses) {
-        var formattedOnlineCourse = HTMLeoCourse.replace("%data%", eo[site].courses[course].title);
-        formattedOnlineCourse = formattedOnlineCourse.replace("#", eo[site].courses[course].url);
-        $(".education-entry:last").append(formattedOnlineCourse)
+      for (var c = 0; c < eo[st].courses.length; c++) {
+        var formattedOnlineCourse = HTMLeoCourse.replace("%data%", eo[st].courses[c].title);
+        formattedOnlineCourse = formattedOnlineCourse.replace("#", eo[st].courses[c].url);
+        $(".education-entry:last").append(formattedOnlineCourse);
       }
     }
   }
 };
 
-// Added "positions" array to work object to accomodate multiple positions per job -
+// Added "positions" array (line 277) to work object to accomodate multiple positions per job -
 //      also created different display format because there is no url object for
 //      each job.
 var work = {
@@ -328,33 +327,33 @@ var work = {
   "display": function() {
     var j = work.jobs;
 
-    for (job in j) {
+    for (var w = 0; w < j.length; w++) {
       $("#workExperience").append(HTMLworkStart);
 
-      var formattedEmployer = HTMLaltEmployer.replace("%data%", j[job].employer);
+      var formattedEmployer = HTMLaltEmployer.replace("%data%", j[w].employer);
       $(".work-entry:last").append(formattedEmployer);
 
-      var formattedEmployerDates = HTMLworkDates.replace("%data%", j[job].dates);
+      var formattedEmployerDates = HTMLworkDates.replace("%data%", j[w].dates);
       $(".work-entry:last").append(formattedEmployerDates);
 
-      var formattedEmployerLocation = HTMLworkLocation.replace("%data%", j[job].location);
+      var formattedEmployerLocation = HTMLworkLocation.replace("%data%", j[w].location);
       $(".work-entry:last").append(formattedEmployerLocation);
 
-      for (position in j[job].positions) {
-        var formattedJobTitle = HTMLjobTitle.replace("%data%", j[job].positions[position].title);
+      for (var p = 0; p < j[w].positions.length; p++) {
+        var formattedJobTitle = HTMLjobTitle.replace("%data%", j[w].positions[p].title);
         $(".work-entry:last").append(formattedJobTitle);
 
-        var formattedJobDates = HTMLjobDates.replace("%data%", j[job].positions[position].dates);
+        var formattedJobDates = HTMLjobDates.replace("%data%", j[w].positions[p].dates);
         $(".work-entry:last").append(formattedJobDates);
 
-        var formattedJobDescription = HTMLjobDescription.replace("%data%", j[job].positions[position].description);
+        var formattedJobDescription = HTMLjobDescription.replace("%data%", j[w].positions[p].description);
         $(".work-entry:last").append(formattedJobDescription);
       }
     }
   }
 };
 
-// Line 395: Created variable "p" to cut down on keystrokes
+// Line 425: Created variable "p" to cut down on keystrokes
 var projects = {
   "projects": [
     {
@@ -422,22 +421,22 @@ var projects = {
     }
   ],
   "display": function() {
-    var p = projects.projects
-    for (project in p) {
+    var p = projects.projects;
+    for (var j = 0; j < p.length; j++) {
       $("#projects").append(HTMLprojectStart);
 
-      var formattedTitle = HTMLprojectTitle.replace("%data%", p[project].title);
+      var formattedTitle = HTMLprojectTitle.replace("%data%", p[j].title);
       $(".project-entry:last").append(formattedTitle);
 
-      var formattedDates = HTMLprojectDates.replace("%data%", p[project].dates);
+      var formattedDates = HTMLprojectDates.replace("%data%", p[j].dates);
       $(".project-entry:last").append(formattedDates);
 
-      var formattedDescription = HTMLprojectDescription.replace("%data%", p[project].description);
+      var formattedDescription = HTMLprojectDescription.replace("%data%", p[j].description);
       $(".project-entry:last").append(formattedDescription);
 
-      if (p[project].images.length > 0) {
-        for (image in p[project].images) {
-          var formattedImage = HTMLprojectImage.replace("%data%", p[project].images[image]);
+      if (p[j].images.length > 0) {
+        for (var i = 0; i < p[j].images.length; i++) {
+          var formattedImage = HTMLprojectImage.replace("%data%", p[j].images[i]);
           $(".project-entry:last").append(formattedImage);
         }
       }

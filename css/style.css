@@ -26,7 +26,8 @@ h6 {
 
 .jobTitle,
 .jobDate,
-.jobDesc {
+.jobDesc,
+.course {
   margin-left: 30px;
 }
 
@@ -64,9 +65,7 @@ h3,
 h4,
 h5 {
   padding:10px 5%;
-
 }
-
 
 .date-text {
   font-style: italic;
@@ -82,7 +81,6 @@ h5 {
   color: #999;
   line-height: 16px;
   float: right;
-
 }
 
 p {

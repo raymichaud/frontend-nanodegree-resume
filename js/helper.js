@@ -61,9 +61,10 @@ var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
-// Add following four entries in order to reformat output to show multiple courses per school - Ray
-var HTMLeoSchool = '<p>%data%</p>'
-var HTMLeoCourse = '<a href="#">%data%</a>'
+// Add following three entries in order to reformat output to show multiple courses per school - Ray
+var HTMLeoSchool = '<p><br>%data%</p>';
+var HTMLeoDates = '<div class="date-text">%data%</div><br>';
+var HTMLeoCourse = '<a class="course" href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
